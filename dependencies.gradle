@@ -1,0 +1,127 @@
+/**
+ *  This gradle file manage all necessary libraries
+ *  Any module will be created in the future,
+ *  should select libraries from this pool
+ *  @Author Ouday Khaled
+ */
+
+ext{
+
+    versions = [
+            java                : JavaVersion.VERSION_1_8,
+            minSdk              : 23,
+            compileSdk          : 28,
+            targetSdk           : 28,
+            appCompat           : '1.1.0-beta01',
+            buildTools          : '28.0.3',
+
+            retrofit            : '2.6.0',
+            retrofitAdapter     : '2.6.0',
+
+            navVersion          : '2.1.0-alpha05',
+            navVersionKtx       : '2.0.0',
+            lifecycleextensions : '2.2.0-alpha02',
+            lifecycleViewmodel  : '2.2.0-alpha02',
+            kotlinCoroutinesAdapter : '0.9.2',
+            room                : '2.2.0-alpha01',
+
+            crashlytics         : '2.10.1',
+
+            jakewhartonAdapter  : '1.0.0',
+            gson               : '2.8.5',
+
+            rxAndroid           : '2.1.1',
+
+            androidKtx: '1.1.0',
+            workmanager         : '2.1.0',
+
+            rxJava              : '2.2.9',
+            rxBindingAppCompat  : '3.0.0-alpha2',
+
+            okhttp              : '4.0.0-alpha02',
+
+            // For app
+            kotlin              : '1.3.31',
+            coroutine           : '1.2.1',
+            coreKtx             : '1.2.0-alpha01',
+            core                : '1.0.2',
+
+            constraintLayout    : '2.0.0-beta1',
+            recyclerview        : '1.1.0-alpha06',
+
+            dagger              : '2.23.1',
+
+
+            // For testing
+            junit               : '4.13-beta-3',
+            coreTest            : '1.2.0',
+            mockito             : '2.28.2',
+            testRules           : '1.2.0',
+            extJunit            : '1.1.1',
+            testRunner          : '1.2.0',
+            espresso            : '3.2.0',
+            stackimageview      : '0.0.6',
+            dexter              : '5.0.0',
+    ]
+
+    libraries = [
+
+            kotlin                  : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}",
+            coroutinesCore          : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutine}",
+            coroutinesAndroid       : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutine}",
+            coroutinesTest          : "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutine}",
+            core                    : "androidx.core:core:${versions.core}",
+            coreKtx                 : "androidx.core:core-ktx:${versions.coreKtx}",
+            retrofit                : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            retrofitConverter       : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+            gson                    : "com.google.code.gson:gson:${versions.gson}",
+            retrofitAdapter         : "com.squareup.retrofit2:adapter-rxjava:${versions.retrofitAdapter}",
+            jakewhartonAdapter      : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${versions.jakewhartonAdapter}",
+            junit                   : "junit:junit:${versions.junit}",
+            coreTest                : "androidx.test:core:${versions.coreTest}",
+            mockitoCore             : "org.mockito:mockito-core:${versions.mockito}",
+            mockito                 : "org.mockito:mockito-android:${versions.mockito}",
+            testRules               : "androidx.test:rules:${versions.testRules}",
+            extJunit                : "androidx.test.ext:junit:${versions.extJunit}",
+            testRunner              : "androidx.test:runner:${versions.testRunner}",
+            espressoCore            : "androidx.test.espresso:espresso-core:${versions.espresso}",
+            espressoContrib         : "androidx.test.espresso:espresso-contrib:${versions.espresso}",
+            espressoIntents         : "androidx.test.espresso:espresso-intents:${versions.espresso}",
+            roomTest                : "android.arch.persistence.room:testing:${versions.room}",
+            dexter                  : "com.karumi:dexter:${versions.dexter}",
+            stackimageview          : "com.kartikp.stackimageview:stackimageview:${versions.stackimageview}",
+            navFragment             : "androidx.navigation:navigation-fragment:${versions.navVersion}",
+            navFragmentKtx          : "androidx.navigation:navigation-fragment-ktx:${versions.navVersionKtx}",
+            navUI                   : "androidx.navigation:navigation-ui:${versions.navVersion}",
+            navUIKtx                : "androidx.navigation:navigation-ui-ktx:${versions.navVersionKtx}",
+            viewPager2              : "androidx.viewpager2:viewpager2:1.0.0-rc01",
+            lifecycleextensions     : "androidx.lifecycle:lifecycle-extensions:${versions.lifecycleextensions}",
+            lifecycleCompiler       : "androidx.lifecycle:lifecycle-compiler:${versions.lifecycleextensions}",
+            lifecycleViewmodel      : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycleViewmodel}",
+            lifecycleFragment       : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycleViewmodel}",
+            liveData                :"androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycleViewmodel}",
+            kotlinCoroutinesAdapter : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${versions.kotlinCoroutinesAdapter}",
+
+            rxAndroid               : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
+            rxJava                  : "io.reactivex.rxjava2:rxjava:${versions.rxJava}",
+            rxBindingAppCompat      : "com.jakewharton.rxbinding3:rxbinding-appcompat:${versions.rxBindingAppCompat}",
+            okhttp                  : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+            okhttpLogger            : "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}",
+            room                    : "androidx.room:room-runtime:${versions.room}",
+            roomKtx                 : "androidx.room:room-ktx:${versions.room}",
+            roomCompiler            : "androidx.room:room-compiler:${versions.room}",
+            fragmentsKtx            : "androidx.fragment:fragment-ktx:${versions.androidKtx}",
+            material                : "com.google.android.material:material:${versions.material}",
+
+            dagger             : "com.google.dagger:dagger:${versions.dagger}",
+            daggerSupport      : "com.google.dagger:dagger-android-support:${versions.dagger}",
+            daggerCompiler          : "com.google.dagger:dagger-compiler:${versions.dagger}",
+            daggerAndroidApt   : "com.google.dagger:dagger-android-processor:${versions.dagger}",
+
+            imageLoader : 'com.nostra13.universalimageloader:universal-image-loader:1.9.5',
+
+            workmanager        : "androidx.work:work-runtime-ktx:${versions.workmanager}",
+
+    ]
+
+}

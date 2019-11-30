@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_customer"
+    app:startDestination="@id/allCustomersFragment">
+
+    <fragment
+        android:id="@+id/allCustomersFragment"
+        android:name="com.ouday.test.customer.presentation.ui.fragment.AllCustomersFragment"
+        android:label="fragment_all_customers"
+        tools:layout="@layout/fragment_all_customers" />
+</navigation>
