@@ -3,6 +3,7 @@ package com.ouday.test.core
 import android.app.Activity
 import android.app.Application
 import androidx.fragment.app.Fragment
+import androidx.room.Room
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache
 import com.nostra13.universalimageloader.core.DisplayImageOptions
@@ -11,6 +12,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader
 import com.ouday.test.core.di.component.DaggerAppComponent
+import com.ouday.test.core.persistence.AppDatabase
+import com.ouday.test.core.persistence.DatabaseClient
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -32,6 +35,8 @@ class App : Application(), HasActivityInjector, HasSupportFragmentInjector {
             .application(this)
             .build()
             .inject(this)
+
+        DatabaseClient.init(this)
 
         val config = ImageLoaderConfiguration.Builder(
             this

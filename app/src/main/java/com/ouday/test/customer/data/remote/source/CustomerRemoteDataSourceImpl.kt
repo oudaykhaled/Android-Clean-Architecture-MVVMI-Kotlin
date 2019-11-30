@@ -6,10 +6,10 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class CustomerDataSourceImpl @Inject constructor(
+class CustomerRemoteDataSourceImpl @Inject constructor(
     private val service: CustomerService,
     @CoroutinesIO private val context: CoroutineContext
-) : CustomerDataSource {
+) : CustomerRemoteDataSource {
 
     override suspend fun requestAllCustomers() = withContext(context){
         val response = service.getAllCustomersAsync().await()

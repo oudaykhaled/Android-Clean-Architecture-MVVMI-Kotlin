@@ -1,8 +1,10 @@
 package com.ouday.test.customer.di
 
+import com.ouday.test.customer.data.local.CustomerLocalDataSource
+import com.ouday.test.customer.data.local.CustomerLocalDataSourceImpl
 import com.ouday.test.customer.data.remote.services.CustomerService
-import com.ouday.test.customer.data.remote.source.CustomerDataSource
-import com.ouday.test.customer.data.remote.source.CustomerDataSourceImpl
+import com.ouday.test.customer.data.remote.source.CustomerRemoteDataSource
+import com.ouday.test.customer.data.remote.source.CustomerRemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -13,14 +15,21 @@ class CustomerRemoteModule {
 
     @Module
     interface Binders {
+
         @Binds
         fun bindsRemoteSource(
-            remoteDataSourceImpl: CustomerDataSourceImpl
-        ): CustomerDataSource
+            remoteDataSourceImpl: CustomerRemoteDataSourceImpl
+        ): CustomerRemoteDataSource
+
+        @Binds
+        fun bindsLocalSource(
+            localDataSourceImpl: CustomerLocalDataSourceImpl
+        ): CustomerLocalDataSource
     }
 
     @Provides
     fun providesCustomerService(retrofit: Retrofit): CustomerService =
         retrofit.create(CustomerService::class.java)
+
 
 }

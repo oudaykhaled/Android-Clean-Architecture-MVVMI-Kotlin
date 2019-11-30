@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ouday.test.R
 import com.ouday.test.core.network.Status
 import com.ouday.test.core.presentation.BaseFragment
 import com.ouday.test.core.presentation.ViewModelFactory
 import com.ouday.test.customer.data.model.Customer
+import com.ouday.test.customer.presentation.ui.activity.CustomerActivity
 import com.ouday.test.customer.presentation.ui.adapter.CustomerRecyclerViewAdapter
 import com.ouday.test.customer.presentation.viewmodel.CustomerViewModel
 import kotlinx.android.synthetic.main.fragment_all_customers.*
@@ -67,8 +69,9 @@ class AllCustomersFragment : BaseFragment() {
             }
     }
 
-    private fun onCustomerSelected(it: Customer) {
-
+    private fun onCustomerSelected(selectedCustomer: Customer) {
+        viewModel.setSelectedCustomer(selectedCustomer)
+        view?.let { Navigation.findNavController(it).navigate(R.id.action_allCustomersFragment_to_customerDetailFragment) }
     }
 
 }

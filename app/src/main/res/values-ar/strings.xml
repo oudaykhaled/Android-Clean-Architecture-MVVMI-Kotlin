@@ -4,5 +4,10 @@
     <string name="app_name">Ouday Test</string>
     <string name="profile.label.login">Login</string>
     <string name="profile.button.login">Login</string>
+    <string name="firstName">First name</string>
+    <string name="lastName">Last Name</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="address">Address</string>
+    <string name="save">Save</string>
 
 </resources>

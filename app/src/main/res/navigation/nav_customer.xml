@@ -9,5 +9,14 @@
         android:id="@+id/allCustomersFragment"
         android:name="com.ouday.test.customer.presentation.ui.fragment.AllCustomersFragment"
         android:label="fragment_all_customers"
-        tools:layout="@layout/fragment_all_customers" />
+        tools:layout="@layout/fragment_all_customers" >
+        <action
+            android:id="@+id/action_allCustomersFragment_to_customerDetailFragment"
+            app:destination="@id/customerDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerDetailFragment"
+        android:name="com.ouday.test.customer.presentation.ui.fragment.CustomerDetailFragment"
+        android:label="fragment_customer_detail"
+        tools:layout="@layout/fragment_customer_detail" />
 </navigation>
