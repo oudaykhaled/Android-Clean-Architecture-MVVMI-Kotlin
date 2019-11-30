@@ -12,7 +12,7 @@ import javax.inject.Inject
 class CustomerViewModel  @Inject constructor(private val useCase: CustomerUseCase) : ViewModel() {
 
     private val allCustomersLiveData = MediatorLiveData<Result<List<Customer>>>()
-    private val selectedCustomer: Customer? = null
+    private var selectedCustomer: Customer? = null
 
     fun requestAllCustomers() {
         viewModelScope.launch {
@@ -27,7 +27,7 @@ class CustomerViewModel  @Inject constructor(private val useCase: CustomerUseCas
     }
 
     fun setSelectedCustomer(selectedCustomer: Customer): CustomerViewModel {
-        this.selectedCustomer
+        this.selectedCustomer = selectedCustomer
         return this
     }
 

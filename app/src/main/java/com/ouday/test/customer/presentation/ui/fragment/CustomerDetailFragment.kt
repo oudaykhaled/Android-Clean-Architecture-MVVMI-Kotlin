@@ -33,7 +33,10 @@ class CustomerDetailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(CustomerViewModel::class.java)
+        activity?.run {
+            viewModel =
+                ViewModelProviders.of(activity!!, viewModelFactory).get(CustomerViewModel::class.java)
+        }
 
         viewModel.getSelectedCustomer()?.let { initView(it) }
 

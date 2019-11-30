@@ -50,6 +50,7 @@ class LoginFragment : BaseFragment() {
                 Status.ERROR -> {
                     it.message
                     dismissLoading()
+                    onLoginSuccess(null)
                 }
                 Status.SUCCESS -> {
                     dismissLoading()
@@ -66,7 +67,7 @@ class LoginFragment : BaseFragment() {
         }
     }
 
-    private fun onLoginSuccess(data: Profile) {
+    private fun onLoginSuccess(data: Profile?) {
         startActivity(context?.let { CustomerActivity.newInstance(it) })
     }
 
