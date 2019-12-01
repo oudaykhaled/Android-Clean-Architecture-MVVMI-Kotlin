@@ -1,0 +1,33 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OudayTest",
+		"_postman_id": "aac772b7-d3af-50c9-c939-13ef25fe7bd6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://customers.free.beeceptor.com/customers/all",
+			"request": {
+				"url": "https://customers.free.beeceptor.com/customers/all",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Retrieve all customers"
+			},
+			"response": []
+		},
+		{
+			"name": "http://login.free.beeceptor.com/login",
+			"request": {
+				"url": "http://login.free.beeceptor.com/login",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "Validate Username and password"
+			},
+			"response": []
+		}
+	]
+}
