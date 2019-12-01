@@ -61,10 +61,10 @@ class ProfileViewModelTest {
             }
         }
         profileViewModel = ProfileViewModel(useCase)
+        profileViewModel.requestLogin(request.username, request.password)
 
         val result = profileViewModel.getLoginLiveData()
         result.observeForever {}
-        kotlinx.coroutines.delay(2000)
         assert(LiveDataTestUtil.getValue(result).status == Status.LOADING)
 
     }
@@ -81,7 +81,7 @@ class ProfileViewModelTest {
             }
         }
         profileViewModel = ProfileViewModel(useCase)
-
+        profileViewModel.requestLogin(request.username, request.password)
         val result = profileViewModel.getLoginLiveData()
         result.observeForever {}
         kotlinx.coroutines.delay(2000)
@@ -102,7 +102,7 @@ class ProfileViewModelTest {
             }
         }
         profileViewModel = ProfileViewModel(useCase)
-
+        profileViewModel.requestLogin(request.username, request.password)
         val result = profileViewModel.getLoginLiveData()
         result.observeForever {}
         kotlinx.coroutines.delay(2000)

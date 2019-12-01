@@ -42,7 +42,7 @@ class ProfileRemoteDataSourceTest {
     fun init() {
         service = mock {
             onBlocking {
-                service.loginAsync(
+               loginAsync(
                     LoginRequest(
                         "ouday",
                         "123"
@@ -57,7 +57,6 @@ class ProfileRemoteDataSourceTest {
 
     @Test
     fun testLoginReturnSuccessResponse() = runBlocking {
-        remoteDataSource = ProfileDataSourceImpl(service, mainCoroutineRule.coroutineContext)
         val result = remoteDataSource.requestLogin("ouday", "123")
         assert(result == response)
     }
