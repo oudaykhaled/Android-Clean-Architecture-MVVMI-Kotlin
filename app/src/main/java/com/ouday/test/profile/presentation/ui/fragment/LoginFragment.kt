@@ -55,8 +55,7 @@ class LoginFragment : BaseFragment() {
 
 
         btnLogin.setOnClickListener {
-            startActivity(context?.let { CustomerActivity.newInstance(it) })
-//            viewModel.requestLogin(etUsername.text.toString(), etPassword.text.toString())
+            viewModel.requestLogin(etUsername.text.toString(), etPassword.text.toString())
         }
     }
 
