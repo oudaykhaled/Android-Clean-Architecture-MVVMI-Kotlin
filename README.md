@@ -33,3 +33,6 @@ This project consist of two modules:
 
 Each Component follow the following architecture:
 UI(Fragment/Activity) => ViewModel => UseCase => Repository
+
+Code Coverage
+https://app.codacy.com/manual/oudaykhaled/Android-Clean-Architecture-MVVMI-Kotlin/dashboard
