@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.ouday.test.R
+import com.ouday.test.core.network.Status
 import com.ouday.test.core.presentation.BaseFragment
 import com.ouday.test.core.presentation.ViewModelFactory
 import com.ouday.test.customer.data.model.Customer
@@ -40,13 +41,26 @@ class CustomerDetailFragment : BaseFragment() {
 
         viewModel.getSelectedCustomer()?.let { initView(it) }
 
+        viewModel.getCustomerSavedObserver().observe(this@CustomerDetailFragment, androidx.lifecycle.Observer {
+            when (it.status) {
+                Status.LOADING -> showLoading()
+                Status.ERROR -> {
+                    it.message
+                    dismissLoading()
+                }
+                Status.SUCCESS -> {
+                    dismissLoading()
+                    Navigation.findNavController(view).popBackStack()
+                }
+            }
+        })
+
         btnSave.setOnClickListener {
             viewModel.getSelectedCustomer()?.firstName = etFirstName.text.toString()
             viewModel.getSelectedCustomer()?.lastName = etLastName.text.toString()
             viewModel.getSelectedCustomer()?.mobileNumber = etMobileNumber.text.toString()
             viewModel.getSelectedCustomer()?.address = etAddress.text.toString()
             viewModel.getSelectedCustomer()?.let { it1 -> viewModel.saveCustomerData(it1) }
-            Navigation.findNavController(view).popBackStack()
         }
 
     }

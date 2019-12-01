@@ -5,23 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
-import androidx.test.core.app.ApplicationProvider
-
 import com.ouday.test.R
 import com.ouday.test.core.network.Status
-import com.ouday.test.core.persistence.DatabaseClient
 import com.ouday.test.core.presentation.BaseFragment
 import com.ouday.test.core.presentation.ViewModelFactory
 import com.ouday.test.customer.presentation.ui.activity.CustomerActivity
 import com.ouday.test.profile.data.model.Profile
 import com.ouday.test.profile.presentation.viewmodel.ProfileViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class LoginFragment : BaseFragment() {
@@ -63,7 +55,8 @@ class LoginFragment : BaseFragment() {
 
 
         btnLogin.setOnClickListener {
-            viewModel.requestLogin(etUsername.text.toString(), etPassword.text.toString())
+            startActivity(context?.let { CustomerActivity.newInstance(it) })
+//            viewModel.requestLogin(etUsername.text.toString(), etPassword.text.toString())
         }
     }
 

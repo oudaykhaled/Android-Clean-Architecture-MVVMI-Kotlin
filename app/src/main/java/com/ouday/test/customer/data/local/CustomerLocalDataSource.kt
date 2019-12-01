@@ -6,5 +6,6 @@ interface CustomerLocalDataSource {
 
     suspend fun requestAllCustomers(): List<Customer>
     suspend fun saveAllCustomers(customers: Array<Customer>)
+    suspend fun saveCustomer(customer: Customer)
 
 }

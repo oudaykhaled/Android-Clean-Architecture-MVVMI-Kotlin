@@ -9,9 +9,10 @@ import com.ouday.test.customer.domain.CustomerUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class CustomerViewModel  @Inject constructor(private val useCase: CustomerUseCase) : ViewModel() {
+class CustomerViewModel @Inject constructor(private val useCase: CustomerUseCase) : ViewModel() {
 
     private val allCustomersLiveData = MediatorLiveData<Result<List<Customer>>>()
+    private val customerSavedObserver = MediatorLiveData<Result<Customer>>()
     private var selectedCustomer: Customer? = null
 
     fun requestAllCustomers() {
@@ -35,8 +36,16 @@ class CustomerViewModel  @Inject constructor(private val useCase: CustomerUseCas
         return this.selectedCustomer
     }
 
-    fun saveCustomerData(customer: Customer){
+    fun getCustomerSavedObserver(): MediatorLiveData<Result<Customer>> {
+        return customerSavedObserver
+    }
 
+    fun saveCustomerData(customer: Customer){
+        viewModelScope.launch {
+            customerSavedObserver.addSource(useCase.updateCustomer(customer)) {
+                customerSavedObserver.value = it
+            }
+        }
     }
 
 }

@@ -8,6 +8,13 @@ import javax.inject.Inject
 
 class CustomerLocalDataSourceImpl @Inject constructor(): CustomerLocalDataSource {
 
+    override suspend fun saveCustomer(customer: Customer)  = withContext(Dispatchers.IO){
+        DatabaseClient.getInstance()
+            .appDatabase
+            .customerDao()
+            .update(customer)
+    }
+
     override suspend fun requestAllCustomers() = withContext(Dispatchers.IO){
         DatabaseClient.getInstance()
             .appDatabase

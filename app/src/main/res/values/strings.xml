@@ -11,5 +11,6 @@
     <string name="mobileNumber">Mobile Number</string>
     <string name="address">Address</string>
     <string name="save">Save</string>
+    <string name="splash">Welcome to MMVMI sample App \n by Ouday Khaled</string>
 
 </resources>

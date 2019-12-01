@@ -6,4 +6,5 @@ import com.ouday.test.customer.data.model.Customer
 
 interface CustomerRepository {
     suspend fun requestAllCustomers(): LiveData<Result<List<Customer>>>
+    suspend fun updateCustomer(customer: Customer): LiveData<Result<Customer>>
 }

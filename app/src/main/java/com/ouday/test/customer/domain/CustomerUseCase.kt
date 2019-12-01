@@ -7,5 +7,6 @@ import com.ouday.test.customer.data.model.Customer
 interface CustomerUseCase {
 
     suspend fun requestAllCustomers(): LiveData<Result<List<Customer>>>
+    suspend fun updateCustomer(customer: Customer) : LiveData<Result<Customer>>
 
 }
