@@ -21,6 +21,7 @@ Technologies used:
 6- UniversalImageLoader
 7- Dagger 2
 8- Coroutines
+9- Retrofit
 
 References:
 1- Clean Architecture Book (Robert Marting)
