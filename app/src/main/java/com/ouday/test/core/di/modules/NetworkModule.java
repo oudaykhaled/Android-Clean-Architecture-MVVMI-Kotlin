@@ -9,8 +9,6 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.ouday.test.BuildConfig;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Named;
@@ -73,9 +71,7 @@ public class NetworkModule {
      * @param interceptor
      * @return
      */
-    @NotNull
-    @Provides
-    OkHttpClient getOkHttpClient(Interceptor interceptor) {
+    protected OkHttpClient getOkHttpClient(Interceptor interceptor) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         HttpLoggingInterceptor logginIntercepter = new HttpLoggingInterceptor();

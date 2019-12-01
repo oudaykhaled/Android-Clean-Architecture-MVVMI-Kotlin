@@ -32,13 +32,13 @@ public class SchedulersModule {
 
     @CoroutinesIO
     @Provides
-    CoroutineContext providesIoDispatcher() {
+    public CoroutineContext providesIoDispatcher() {
       return  Dispatchers.getIO();
     }
 
     @CoroutinesMainThread
     @Provides
-    CoroutineContext providesMainThreadDispatcher(){
+    public CoroutineContext providesMainThreadDispatcher(){
         return Dispatchers.getMain();
     }
 
